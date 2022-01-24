@@ -29,6 +29,7 @@ namespace PokeLayer.Api.Controllers
     /// <returns>Task of type IAction result containing the result of the fetch method</returns>
     [HttpGet("{pokemonName}")]
     [ResponseCache(VaryByHeader = "User-Agent", Duration = 300)]
+    [Produces("application/json")]
     public async Task<IActionResult> GetPokemonAsync(string pokemonName)
     {
       var pokemon = await _pokemonService.GetPokemonAsync(pokemonName);
@@ -48,6 +49,7 @@ namespace PokeLayer.Api.Controllers
     /// <returns>Task of type IAction result containing the result of the fetch method</returns>
     [HttpGet("translated/{pokemonName}")]
     [ResponseCache(VaryByHeader = "User-Agent", Duration = 300)]
+    [Produces("application/json")]
     public async Task<IActionResult> GetTranslatedPokemonAsync(string pokemonName)
     {
       var pokemon = await _pokemonService.GetTranslatedPokemonAsync(pokemonName);
