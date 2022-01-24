@@ -6,6 +6,7 @@ using PokeLayer.Models.SharedModels.FunTranslations;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Logging;
 
 namespace PokeLayer.Application.ApiClients.FunTranslationsApi
 {
@@ -13,11 +14,13 @@ namespace PokeLayer.Application.ApiClients.FunTranslationsApi
   {
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly IConfiguration _configuration;
+    private readonly ILogger<FunTranslationsApiClient> _logger;
 
-    public FunTranslationsApiClient(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+    public FunTranslationsApiClient(IHttpClientFactory httpClientFactory, IConfiguration configuration, ILogger<FunTranslationsApiClient> logger)
     {
       this._httpClientFactory = httpClientFactory;
       this._configuration = configuration;
+      this._logger = logger;
     }
 
     public async Task<FunTranslation> GetYodaFunTranslationFromApi(string textToTranslate)
@@ -25,13 +28,16 @@ namespace PokeLayer.Application.ApiClients.FunTranslationsApi
       var httpClient = _httpClientFactory.CreateClient();
       var httpResponse = await httpClient.GetAsync(GetFunTranslationUrl(textToTranslate, "yoda"));
 
-      if (httpResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+      if (httpResponse.StatusCode != System.Net.HttpStatusCode.OK)
       {
+        _logger.LogError($"Error while fetching translation. Status code: {httpResponse.StatusCode}.");
         return null;
+      } 
+      else
+      {
+        var json = await httpResponse.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<FunTranslation>(json);
       }
-
-      var json = await httpResponse.Content.ReadAsStringAsync();
-      return JsonConvert.DeserializeObject<FunTranslation>(json);
     }
 
     public async Task<FunTranslation> GetShakespeareFunTranslationFromApi(string textToTranslate)
@@ -40,13 +46,16 @@ namespace PokeLayer.Application.ApiClients.FunTranslationsApi
       var requestUrl = GetFunTranslationUrl(textToTranslate, "shakespeare");
       var httpResponse = await httpClient.GetAsync(requestUrl);
 
-      if (httpResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+      if (httpResponse.StatusCode != System.Net.HttpStatusCode.OK)
       {
+        _logger.LogError($"Error while fetching translation. Status code: {httpResponse.StatusCode}.");
         return null;
       }
-
-      var json = await httpResponse.Content.ReadAsStringAsync();
-      return JsonConvert.DeserializeObject<FunTranslation>(json);
+      else
+      {
+        var json = await httpResponse.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<FunTranslation>(json);
+      }
     }
 
     private string GetFunTranslationUrl(string textToTranslate, string translationType)

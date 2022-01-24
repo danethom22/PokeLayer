@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PokeLayer.Application.ApiClients.PokeApi;
 using PokeLayer.Application.ApiClients.FunTranslationsApi;
+using PokeLayer.Application.Services;
 
 namespace PokeLayer.Api
 {
@@ -31,6 +32,7 @@ namespace PokeLayer.Api
       services.AddHttpClient();
       services.AddScoped<IPokeApiClient, PokeApiClient>();
       services.AddScoped<IFunTranslationsApiClient, FunTranslationsApiClient>();
+      services.AddScoped<IPokemonService, PokemonService>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
