@@ -15,8 +15,4 @@
     <ProjectReference Include="..\PokeLayer.Models\PokeLayer.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
