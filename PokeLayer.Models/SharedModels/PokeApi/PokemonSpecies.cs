@@ -61,7 +61,7 @@ namespace PokeLayer.Models.SharedModels.PokeApi
   /// Class containing language information
   /// </summary>
   public class Language
-  {/
+  {
     /// <summary>
     /// String representing the name of the language
     /// </summary>
