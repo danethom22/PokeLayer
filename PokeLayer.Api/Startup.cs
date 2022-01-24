@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PokeLayer.Application.ApiClients.PokeApi;
+using PokeLayer.Application.ApiClients.FunTranslationsApi;
 
 namespace PokeLayer.Api
 {
@@ -26,6 +28,9 @@ namespace PokeLayer.Api
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllers();
+      services.AddHttpClient();
+      services.AddScoped<IPokeApiClient, PokeApiClient>();
+      services.AddScoped<IFunTranslationsApiClient, FunTranslationsApiClient>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
