@@ -31,6 +31,7 @@ namespace PokeLayer.Api
       services.AddControllers();
       services.AddHttpClient();
       services.AddResponseCaching();
+      services.AddSwaggerGen();
       services.AddScoped<IPokeApiClient, PokeApiClient>();
       services.AddScoped<IFunTranslationsApiClient, FunTranslationsApiClient>();
       services.AddScoped<IPokemonService, PokemonService>();
@@ -42,6 +43,8 @@ namespace PokeLayer.Api
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
+        app.UseSwagger();
+        app.UseSwaggerUI();
       }
 
       app.UseHttpsRedirection();
