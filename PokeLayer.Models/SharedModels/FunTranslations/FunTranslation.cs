@@ -5,7 +5,7 @@ using System.Text;
 namespace PokeLayer.Models.SharedModels.FunTranslations
 {
   /// <summary>
-  /// Class to hold FunTranslation Api response
+  /// Class containing the fun translation returned from an Api client
   /// </summary>
   public class FunTranslation
   {
