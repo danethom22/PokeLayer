@@ -30,6 +30,7 @@ namespace PokeLayer.Api
     {
       services.AddControllers();
       services.AddHttpClient();
+      services.AddResponseCaching();
       services.AddScoped<IPokeApiClient, PokeApiClient>();
       services.AddScoped<IFunTranslationsApiClient, FunTranslationsApiClient>();
       services.AddScoped<IPokemonService, PokemonService>();
@@ -48,6 +49,8 @@ namespace PokeLayer.Api
       app.UseRouting();
 
       app.UseAuthorization();
+
+      app.UseResponseCaching();
 
       app.UseEndpoints(endpoints =>
       {
