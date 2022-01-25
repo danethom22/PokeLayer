@@ -34,7 +34,7 @@ namespace PokeLayer.Api.Controllers
     {
       var pokemon = await _pokemonService.GetPokemonAsync(pokemonName);
 
-      if (pokemon == null)
+      if (pokemon == null || pokemon.name != pokemonName)
       {
         return NotFound();
       }
@@ -54,7 +54,7 @@ namespace PokeLayer.Api.Controllers
     {
       var pokemon = await _pokemonService.GetTranslatedPokemonAsync(pokemonName);
 
-      if (pokemon == null)
+      if (pokemon == null || pokemon.name != pokemonName)
       {
         return NotFound();
       }
