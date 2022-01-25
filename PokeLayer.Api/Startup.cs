@@ -47,8 +47,6 @@ namespace PokeLayer.Api
         app.UseSwaggerUI();
       }
 
-      app.UseHttpsRedirection();
-
       app.UseRouting();
 
       app.UseAuthorization();
