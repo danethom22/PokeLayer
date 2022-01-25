@@ -5,9 +5,13 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeLayer.Api", "PokeLayer.Api\PokeLayer.Api.csproj", "{AD2F5305-6EA4-4C00-ABD6-65D7E71C770E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeLayer.Application", "PokeLayer.Application\PokeLayer.Application.csproj", "{24331099-B12C-4432-A700-E92B3C91AE1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeLayer.Application", "PokeLayer.Application\PokeLayer.Application.csproj", "{24331099-B12C-4432-A700-E92B3C91AE1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeLayer.Models", "PokeLayer.Models\PokeLayer.Models.csproj", "{76DF3911-E053-41A4-98D7-AEE3C6B4B731}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeLayer.Models", "PokeLayer.Models\PokeLayer.Models.csproj", "{76DF3911-E053-41A4-98D7-AEE3C6B4B731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeLayer.Application.Tests", "PokeLayer.Application.Tests\PokeLayer.Application.Tests.csproj", "{05DBD689-FD5E-46C1-A761-1C1407DAF093}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeLayer.Api.Tests", "PokeLayer.Api.Tests\PokeLayer.Api.Tests.csproj", "{78BB0824-C823-4C0C-8CF5-D3D296CA510D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{76DF3911-E053-41A4-98D7-AEE3C6B4B731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76DF3911-E053-41A4-98D7-AEE3C6B4B731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76DF3911-E053-41A4-98D7-AEE3C6B4B731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05DBD689-FD5E-46C1-A761-1C1407DAF093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05DBD689-FD5E-46C1-A761-1C1407DAF093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05DBD689-FD5E-46C1-A761-1C1407DAF093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05DBD689-FD5E-46C1-A761-1C1407DAF093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78BB0824-C823-4C0C-8CF5-D3D296CA510D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78BB0824-C823-4C0C-8CF5-D3D296CA510D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78BB0824-C823-4C0C-8CF5-D3D296CA510D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78BB0824-C823-4C0C-8CF5-D3D296CA510D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
